@@ -62,6 +62,54 @@ Qualquer dúvida é so criar um ticket, poderei também escrever o código em no
 | 3 | Chave inválida.|
 | 9 | Erro desconhecido.|
 
+## Gerar novo pagamento mbway
+
+```php
+<?php 
+
+require("class/mbway.php");
+
+define("MBWAY_KEY",                 "DTM-0000000"); // Key MbWay fornecida pelo IfThenpay
+define("IFTHENPAY_MBWAY_CHANNEL",   "03");          // Canal predefinido na documentação do Ifthenpay
+
+define("URL_PROTOCOL",              "http");
+
+$mbway = new MBWay(MBWAY_KEY, IFTHENPAY_MBWAY_CHANNEL, URL_PROTOCOL);
+
+// Id da compra, neste caso um número random
+$phone_number           = "910000000";
+$customer_email         = "teste@email.com";
+$description            = "Compra teste";
+$internal_reference     = rand(1000, 10000);
+$order_value            = 0.01;
+
+// Obter a referência
+$status = $mbway->create($phone_number, $internal_reference, $order_value, $customer_email, $description);
+
+?>
+```
+
+## Obter informações sobre pagamento MBWay
+
+```php
+<?php 
+
+require("class/mbway.php");
+
+define("MBWAY_KEY",                 "DTM-0000000"); // Key MbWay fornecida pelo IfThenpay
+define("IFTHENPAY_MBWAY_CHANNEL",   "03");          // Canal predefinido na documentação do Ifthenpay
+
+define("URL_PROTOCOL",              "http");
+
+$mbway = new MBWay(MBWAY_KEY, IFTHENPAY_MBWAY_CHANNEL, URL_PROTOCOL);
+
+// Guardado numa database ou algo
+$payment_id  = "jf7843hnfiernfui3wn";
+$status      = $mbway->status($payment_id);
+
+?>
+```
+
 ## Erros do status de pagamento MbWay
 
 | Código | Descrição |
