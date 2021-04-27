@@ -141,13 +141,13 @@ SSS: três dígitos que identificam a subentidade (o vendedor). Este código é 
 DDDD: ID - quatro dígitos que identificam o nº do documento/encomenda a pagar ou o nº do v/ cliente 
 (conforme prefiram associar o pagamento a um documento ou a um cliente). 
 Este ID terá que ter obrigatoriamente 4 dígitos, pelo que caso o nº do documento/encomenda ou o nº do 
-cliente tenha mais que 4 dígito terá que utiliza    r apenas os 4 mais à direita, caso tenha menos de 4 dígitos
- deverá preencher os restantes com zeros à esquerda.
+cliente tenha mais que 4 dígito terá que utilizar apenas os 4 mais à direita, caso tenha menos de 4 dígitos
+deverá preencher os restantes com zeros à esquerda.
 ```
 
 
 ```
 CC: dois dígitos de controlo (check-digits). Serve para o terminal validar se a informação está correta. 
 Nota: Se o dígito de controlo só tiver um algarismo terá que formatá-lo para 2 algarismos
- colocando 0 (zero) á esquerda.
+colocando 0 (zero) á esquerda.
 ```
