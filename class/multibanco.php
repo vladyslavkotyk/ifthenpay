@@ -16,21 +16,26 @@ class Multibanco {
 
     private $entity;
     private $sub_entity;
+    private $url_protocol;
 
-    function __construct($entity, $sub_entity) {
+    function __construct($entity, $sub_entity, $url_protocol) {
 
         if (strlen($entity) !== 5) {
 
-            return array("success" => false, "message" => "Entidade inválida, tente novamente");
+            echo json_encode(array("success" => false, "message" => "Entidade inválida, tente novamente"));
+            exit();
         }
 
         if (strlen($sub_entity) !== 3) {
 
-            return array("success" => false, "message" => "Sub-Entidade inválida, tente novamente");
+            echo json_encode(array("success" => false, "message" => "Sub-Entidade inválida, tente novamente"));
+            exit();
         }
 
         $this->entity       = $entity;
         $this->sub_entity   = $sub_entity;
+
+        $this->url_protocol = $url_protocol;
     }
 
     /* 
@@ -67,8 +72,8 @@ class Multibanco {
         
         for ($i = 0; $i < 20; $i++) {
             
-                $chk_int = substr($chk_str, 19 - $i, 1);
-                $chk_val += ($chk_int % 10) * $chk_array[$i];
+            $chk_int = substr($chk_str, 19 - $i, 1);
+            $chk_val += ($chk_int % 10) * $chk_array[$i];
         }
         
         $chk_val %= 97;
@@ -77,5 +82,37 @@ class Multibanco {
 
         // Return da referência multibanco criada
         return $this->sub_entity . " " . substr($chk_str, 8, 3) . " " . substr($chk_str, 11, 1) . $chk_digits;
+    }
+
+    /* 
+        Obter o status do pagamento com uma API call à ifthenpay
+        ( sem usar o callback )
+    */
+
+    function status($api_key, $reference) {
+
+        // Limpar os espaços da referencia
+        $reference = str_replace(" ", "", $reference);
+
+        $url  = "http://www.ifthenpay.com/IfmbWS/WsIfmb.asmx/GetPaymentsJson";
+        $url .= "?chavebackoffice=" . $api_key . "&entidade=" . $this->entity . "&subentidade=" . $this->sub_entity . "&referencia=" . $reference . "&sandbox=0&dtHrInicio=&dtHrFim=&valor=";
+                
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $data = curl_exec($curl);
+
+        curl_close($curl);
+
+        // Limpar e converter a resposta da api em JSON
+        $data = str_replace('<?xml version="1.0" encoding="utf-8"?>', "", $data);
+        $data = str_replace('<string xmlns="https://www.ifthenpay.com/">', "", $data);
+        $data = str_replace("</string>", "", $data);
+        
+        $data = json_decode($data, true);
+
+        return $data[0];
     }
 }
