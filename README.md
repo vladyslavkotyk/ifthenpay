@@ -62,7 +62,7 @@
 ## Como funciona uma referência MB 
 A referência é composta sempre por 9 dígitos (em grupos de 3 facilita a visualização) e é composta do seguinte modo:
 
-###### ***SSSDDDDCC***
+#### SSSDDDDCC
 
 Em que:
 
