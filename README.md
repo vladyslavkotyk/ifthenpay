@@ -1,5 +1,3 @@
-![image](https://uicdn.toast.com/toastui/img/tui-editor-bi.png)
-
 # Pagamentos Ifthenpay
 *Alternativa de PHP puro para o sistema de pagamentos MBWAY e Ref Multibanco [https://ifthenpay.com/](https://ifthenpay.com/)*
 
