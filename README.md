@@ -1,6 +1,8 @@
 # Pagamentos Ifthenpay
-*Alternativa de PHP puro para o sistema de pagamentos MBWAY e Ref Multibanco [https://ifthenpay.com/](https://ifthenpay.com/).
-Se houver necessidade escrevo uma versão do código em package composer*
+Alternativa de PHP puro para o sistema de pagamentos MBWAY e Ref Multibanco [https://ifthenpay.com/](https://ifthenpay.com/).
+
+Se houver necessidade escrevo uma versão do código em package composer
+Qualquer dúvida é so criar um ticket, poderei também escrever o código em node.js ou python num breve futuro.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y14FZMA)
 
@@ -59,6 +61,22 @@ Se houver necessidade escrevo uma versão do código em package composer*
 | 2 | Erro nas Datas/Horas.|
 | 3 | Chave inválida.|
 | 9 | Erro desconhecido.|
+
+## Erros do status de pagamento MbWay
+
+| Código | Descrição |
+| --- | --- |
+| 000 | Operação financeira concluída com sucesso |
+| 020 | Operação financeira cancelada pelo utilizador |
+| 023 | Operação financeira devolvida pelo Comerciante |
+| 048 | Operação financeira anulada pelo Comerciante |
+| 100 | Não foi possível concluir a Operação |
+| 104 | Operação financeira não permitida |
+| 111 | O formato do número de telemóvel não se encontrava no formato correto |
+| 113 | O número de telemóvel usado como identificador não foi encontrado |
+| 122 | Operação recusada ao utilizador |
+| 123 | Operação financeira não encontrada |
+| 125 | Operação recusada ao utilizador |
 
 ## Como funciona uma referência MB 
 A referência é composta sempre por 9 dígitos (em grupos de 3 facilita a visualização) e é composta do seguinte modo:

@@ -14,7 +14,7 @@ $multibanco = new Multibanco(MULTIBANCO_ENTIDADE, MULTIBANCO_SUB_ENTIDADE, URL_P
 
 // Id da compra, neste caso um número random
 $order_id       = rand(1000, 10000);
-$order_value    = 39.99;
+$order_value    = 39.99; // Em euros
 
 // Obter a referência
 $reference = $multibanco->generate($order_id, $order_value);

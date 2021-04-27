@@ -94,13 +94,13 @@ class Multibanco {
         // Limpar os espaços da referencia
         $reference = str_replace(" ", "", $reference);
 
-        $url  = "http://www.ifthenpay.com/IfmbWS/WsIfmb.asmx/GetPaymentsJson";
+        $url  = $this->url_protocol . "://www.ifthenpay.com/IfmbWS/WsIfmb.asmx/GetPaymentsJson";
         $url .= "?chavebackoffice=" . $api_key . "&entidade=" . $this->entity . "&subentidade=" . $this->sub_entity . "&referencia=" . $reference . "&sandbox=0&dtHrInicio=&dtHrFim=&valor=";
                 
         $curl = curl_init();
 
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_URL,             $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER,  true);
 
         $data = curl_exec($curl);
 
