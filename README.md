@@ -1,6 +1,8 @@
 # Pagamentos Ifthenpay
 *Alternativa de PHP puro para o sistema de pagamentos MBWAY e Ref Multibanco [https://ifthenpay.com/](https://ifthenpay.com/)*
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y14FZMA)
+
 ## Como gerar uma referência
 
 ```php
@@ -72,7 +74,7 @@ SSS: três dígitos que identificam a subentidade (o vendedor). Este código é 
 DDDD: ID - quatro dígitos que identificam o nº do documento/encomenda a pagar ou o nº do v/ cliente 
 (conforme prefiram associar o pagamento a um documento ou a um cliente). 
 Este ID terá que ter obrigatoriamente 4 dígitos, pelo que caso o nº do documento/encomenda ou o nº do 
-cliente tenha mais que 4 dígito terá que utilizar apenas os 4 mais à direita, caso tenha menos de 4 dígitos
+cliente tenha mais que 4 dígito terá que utiliza    r apenas os 4 mais à direita, caso tenha menos de 4 dígitos
  deverá preencher os restantes com zeros à esquerda.
 ```
 
