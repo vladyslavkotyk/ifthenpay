@@ -56,8 +56,6 @@ class MBway {
 
         curl_close($curl);
 
-        var_dump($data);
-
         // Limpar e converter a resposta da api em JSON
         $data = str_replace('<?xml version="1.0" encoding="utf-8"?>', "", $data);
         $data = str_replace('<string xmlns="https://www.ifthenpay.com/">', "", $data);
