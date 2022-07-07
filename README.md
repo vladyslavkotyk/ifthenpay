@@ -4,8 +4,6 @@ Alternativa de PHP puro para o sistema de pagamentos MBWAY e Ref Multibanco [htt
 Se houver necessidade escrevo uma versão do código em package composer
 Qualquer dúvida é so criar um issue, poderei também escrever o código em node.js ou python num breve futuro.
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y14FZMA)
-
 ## Como gerar uma referência
 
 ```php
